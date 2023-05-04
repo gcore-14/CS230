@@ -9,7 +9,7 @@ from pandas.api.types import (
 from PIL import Image
 
 
-dfinfo = pd.read_csv("In class/final/Meteorite_Landings.csv")
+dfinfo = pd.read_csv("Meteorite_Landings.csv")
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
 
@@ -87,7 +87,7 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
 
     st.dataframe(df)
 
-image = Image.open('In class/final/meteor_shower_topic_1024.jpg')
+image = Image.open('meteor_shower_topic_1024.jpg')
 st.image(image)
 
 
