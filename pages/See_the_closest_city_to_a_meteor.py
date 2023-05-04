@@ -6,8 +6,8 @@ import math
 
 
 
-dfinfo = pd.read_csv("In class/final/Meteorite_Landings.csv")
-dfgeonames = pd.read_csv("In class/final/geonames_cities.csv", sep=";")
+dfinfo = pd.read_csv("Meteorite_Landings.csv")
+dfgeonames = pd.read_csv("geonames_cities.csv", sep=";")
 dfgeonames1 = pd.concat([dfgeonames, dfgeonames['Coordinates'].str.split(', ', expand=True)], axis=1)
 dfgeonames1 = dfgeonames1.rename(columns={0: 'Latitude', 1: 'Longitude'})
 dfgeonames1 = dfgeonames1[dfgeonames1['Country name EN'].notna()]
