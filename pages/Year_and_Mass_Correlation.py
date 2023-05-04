@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
-dfinfo = pd.read_csv("In class/final/Meteorite_Landings.csv")
+dfinfo = pd.read_csv("Meteorite_Landings.csv")
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
 
