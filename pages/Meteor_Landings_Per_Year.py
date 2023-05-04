@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-dfinfo = pd.read_csv("In class/final/Meteorite_Landings.csv")
+dfinfo = pd.read_csv("Meteorite_Landings.csv")
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
 
@@ -35,7 +35,7 @@ def yearfreq(years):
    if st.button('Run Code'):
        run_code()
 
-   image = Image.open('In class/final/difference-meteors-meteoroids-meteorites-meteorite-Allende-example.jpg')
+   image = Image.open('difference-meteors-meteoroids-meteorites-meteorite-Allende-example.jpg')
    st.image(image)
 
 
