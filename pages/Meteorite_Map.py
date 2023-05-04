@@ -4,7 +4,7 @@ import pandas as pd
 import folium
 from streamlit_folium import folium_static
 
-dfinfo = pd.read_csv("In class/final/Meteorite_Landings.csv")
+dfinfo = pd.read_csv("Meteorite_Landings.csv")
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
 
