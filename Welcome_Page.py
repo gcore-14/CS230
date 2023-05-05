@@ -3,7 +3,8 @@ Name: Gregory Cormier
 CS230: Section 3
 Data: Meteorite Landings
 Description:
-This program ... (a few sentences about your program and the queries and charts)
+This program takes in 2 csv files, turning them both into dataframes, then using those dataframes for images such as maps, pie-charts, bar graphs, etc.)
+Extra Credit: used Lambda in ______ and uploaded to Streamlit.io (https://gcore-14-cs230-welcome-page-3d9nyj.streamlit.app/)
 """
 
 import streamlit as st
