@@ -36,7 +36,6 @@ def distance(meteorite, cities):
             geo_name = row['Name']
             geo_country, geo_lat, geo_long = row['Country name EN'], float(row['Latitude']), float(row['Longitude'])
             geo_options[geo_name] = (geo_country, geo_lat, geo_long)
-            #locations[geo_name] = {'latitude': geo_lat, 'longitude': geo_long}
 
 
         distance = 1000
@@ -51,7 +50,7 @@ def distance(meteorite, cities):
                 country = value[0]
         st.write(f"The closest city to {name}, is {town} in {country}, and it is {round(distance,2)} miles away")
     df_locations = pd.DataFrame.from_dict(locations, orient='index')
-    st.map(df_locations, use_container_width=True)
+    st.map(df_locations, use_container_width=False)
     st.text('The dot(s) show where the meteor landed')
 
 
