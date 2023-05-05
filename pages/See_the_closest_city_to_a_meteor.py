@@ -11,12 +11,13 @@ dfgeonames = pd.read_csv("geonames_cities.csv", sep=";")
 dfgeonames1 = pd.concat([dfgeonames, dfgeonames['Coordinates'].str.split(', ', expand=True)], axis=1)
 dfgeonames1 = dfgeonames1.rename(columns={0: 'Latitude', 1: 'Longitude'})
 dfgeonames1 = dfgeonames1[dfgeonames1['Country name EN'].notna()]
-
+#importing another csv file and splitting it up into 2 new columns for the locations
 
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
 
 def distance(meteorite, cities):
+    #user selects what meteor they want information on 
     options = st.multiselect(
         'What Meteorite do you want to find?',
         meteorite['name']
@@ -24,6 +25,7 @@ def distance(meteorite, cities):
     dict_options = {}
     geo_options = {}
     locations = {}
+    #for the chosen option, getting the location of it for the haversine function and also for the locations{} so can map it later
     for name in options:
         row = meteorite[meteorite['name'] == name].iloc[0]
         lat, long = row['reclat'], row['reclong']
@@ -39,7 +41,7 @@ def distance(meteorite, cities):
         distance = 1000
         town = None
         country = None
-
+#using the haversine function, it finds the exact distance between the points and returns what the closest city is, replacing the distance, town, and country
         for key, value in geo_options.items():
             haver_distance = haversine((dict_options[name][0], dict_options[name][1]), (value[1], value[2]), unit=Unit.MILES)
             if haver_distance < distance:
