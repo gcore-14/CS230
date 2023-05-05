@@ -22,19 +22,12 @@ def filter_dataframe(df: pd.DataFrame) -> pd.DataFrame:
     from https://github.com/tylerjrichards/st-filter-dataframe/blob/main/streamlit_app.py
     """
     modify = st.checkbox("Add filters")
+    #creating a checkbox so users can add filters 
 
     if not modify:
         return df
 
-    df = df.copy()
-
-    # Try to convert datetimes into a standard format (datetime, no timezone)
-    for col in df.columns:
-        if is_object_dtype(df[col]):
-            try:
-                df[col] = pd.to_datetime(df[col])
-            except Exception:
-                pass
+    
 
         if is_datetime64_any_dtype(df[col]):
             df[col] = df[col].dt.tz_localize(None)
