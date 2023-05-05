@@ -31,3 +31,4 @@ def mostfreq(value):
     return counts
 
 mostfreq(dfinfo)
+st.write("This chart shows the top 10 classifications used, while describing meteorites.")
