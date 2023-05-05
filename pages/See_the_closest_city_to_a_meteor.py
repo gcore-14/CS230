@@ -50,7 +50,7 @@ def distance(meteorite, cities):
                 country = value[0]
         st.write(f"The closest city to {name}, is {town} in {country}, and it is {round(distance,2)} miles away")
     df_locations = pd.DataFrame.from_dict(locations, orient='index')
-    st.map(df_locations, zoom=5, use_container_width=True)
+    st.map(df_locations, zoom=2, use_container_width=True)
     st.text('The dot(s) show where the meteor landed')
 
 
