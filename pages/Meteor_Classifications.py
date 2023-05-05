@@ -9,8 +9,10 @@ dfinfo = dfinfo[dfinfo['year'] <= 2023]
 def mostfreq(value):
     st.subheader("Check out the most frequent classifications of meteors!")
     counts = {}
+    #sorting dataframe so it is in ascending order, then getting the top 10 classifications
     dataframe = value['recclass'].value_counts()[:10].index.tolist()
     dfinfo = value['recclass']
+    #if i is in both dfinfo and dataframe and in counts already, the count of the classificatoin increases, if not add it to the list
     for i in dfinfo:
         if i in dataframe:
             if i in counts:
@@ -19,12 +21,14 @@ def mostfreq(value):
                 counts[i] = 1
     labels = []
     freq = []
+    #creating empty lists to then append into the classifications
     for x, y in counts.items():
         labels.append(x)
         freq.append(y)
     fig, ax = plt.subplots()
     ax.axis('equal')
     ax.set_title("Top 10 Meteorite Classifications")
+    #plotting the pie chart using the values of labels and freq 
     ax.pie(freq, labels=labels, autopct='%.2f%%')
 
     st.pyplot(fig)
