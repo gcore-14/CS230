@@ -11,12 +11,10 @@ dfgeonames = pd.read_csv("geonames_cities.csv", sep=";")
 dfgeonames1 = pd.concat([dfgeonames, dfgeonames['Coordinates'].str.split(', ', expand=True)], axis=1)
 dfgeonames1 = dfgeonames1.rename(columns={0: 'Latitude', 1: 'Longitude'})
 dfgeonames1 = dfgeonames1[dfgeonames1['Country name EN'].notna()]
-#st.write(dfgeonames1)
 
 
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
-#st.write(dfinfo)
 
 def distance(meteorite, cities):
     options = st.multiselect(
@@ -50,7 +48,7 @@ def distance(meteorite, cities):
                 country = value[0]
         st.write(f"The closest city to {name}, is {town} in {country}, and it is {round(distance,2)} miles away")
     df_locations = pd.DataFrame.from_dict(locations, orient='index')
-    st.map(df_locations, use_container_width=False)
+    st.map(df_locations, zoom=5, use_container_width=True)
     st.text('The dot(s) show where the meteor landed')
 
 
