@@ -27,11 +27,12 @@ def distance(meteorite, cities):
     locations = {}
     #for the chosen option, getting the location of it for the haversine function and also for the locations{} so can map it later
     for name in options:
+        #checks if the meteore name is equal to the name from options then selecting the first row for each name
         row = meteorite[meteorite['name'] == name].iloc[0]
         lat, long = row['reclat'], row['reclong']
         dict_options[name] = (lat, long)
         locations[name] = {'latitude': lat, 'longitude': long}
-
+#for each row it gets the value of the specific row, which was used as the value
         for index, row in cities.iterrows():
             geo_name = row['Name']
             geo_country, geo_lat, geo_long = row['Country name EN'], float(row['Latitude']), float(row['Longitude'])
