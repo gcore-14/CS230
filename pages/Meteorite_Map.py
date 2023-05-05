@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+#importing folium b/c an option in the instructions
 import folium
 from streamlit_folium import folium_static
 
