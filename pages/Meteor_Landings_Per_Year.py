@@ -9,7 +9,7 @@ dfinfo = dfinfo[dfinfo['year'] <= 2023]
 
 def yearfreq(years):
    year_counts = {}
-   dataframe = years['year'].apply(lambda x: None if x < 0 else x)
+   dataframe = years['year'].apply(lambda x: None if x < 0 or x > 2024 else x)
 
    for i in dataframe:
        if i in year_counts:
