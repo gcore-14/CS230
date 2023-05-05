@@ -4,7 +4,7 @@ from PIL import Image
 
 dfinfo = pd.read_csv("Meteorite_Landings.csv")
 dfinfo = dfinfo.dropna()
-dfinfo = dfinfo[dfinfo['year'] <= 2023]
+dfinfo = dfinfo[dfinfo['year']]
 
 
 def yearfreq(years):
