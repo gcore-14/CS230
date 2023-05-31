@@ -15,7 +15,7 @@ dfgeonames1 = dfgeonames1[dfgeonames1['Country name EN'].notna()]
 
 dfinfo = dfinfo.dropna()
 dfinfo = dfinfo[dfinfo['year'] <= 2023]
-@st.cache
+
 def distance(meteorite, cities):
     #user selects what meteor they want information on 
     options = st.multiselect(
